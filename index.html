@@ -3,81 +3,701 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Vivek Kamat</title>
+  <title>Dr. Vivek A. Kamat | Assistant Research Professor</title>
+  <meta
+    name="description"
+    content="Academic website of Dr. Vivek A. Kamat, Research Assistant Professor at Vanderbilt University. Research in biosensors, microfluidics, wearable sensors, AI-enabled sensing systems, and translational healthcare technologies."
+  />
   <style>
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --text: #14213d;
+      --muted: #4f5d75;
+      --line: #d9e2ec;
+      --accent: #1d3f91;
+      --accent-soft: #e8f0ff;
+      --max: 1180px;
+      --radius: 20px;
+      --shadow: 0 10px 30px rgba(20, 33, 61, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #ffffff;
-      color: #111827;
-      line-height: 1.6;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
     }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     .container {
-      max-width: 900px;
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
-      padding: 60px 24px;
     }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 249, 252, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 78px 0 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side,
+    .card,
+    .pub-item,
+    .cv-entry,
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 42px;
+    }
+
+    .hero-side {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
     h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-      color: #1e3a8a;
+      margin: 0 0 16px;
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+      color: var(--accent);
     }
-    h2 {
-      margin-top: 40px;
-      color: #1e3a8a;
-      font-size: 26px;
-    }
-    p, li {
-      font-size: 18px;
-    }
+
     .subtitle {
-      font-size: 20px;
-      margin-bottom: 30px;
-      color: #374151;
+      margin: 0 0 18px;
+      font-size: 1.25rem;
+      color: var(--muted);
     }
-    ul {
-      padding-left: 22px;
+
+    .hero-text {
+      margin: 0 0 28px;
+      font-size: 1.06rem;
+      color: var(--text);
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid var(--accent);
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #17357d;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: #f0f4fb;
+      text-decoration: none;
+    }
+
+    .hero-side h3,
+    .card h3,
+    .cv-entry h3 {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 1.15rem;
+    }
+
+    .hero-side p,
+    .card p,
+    .card li,
+    .cv-entry p,
+    .cv-entry li {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 16px;
+      background: #f8fbff;
+      border: 1px solid var(--line);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    section {
+      padding: 26px 0;
+    }
+
+    .section-head {
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.45rem);
+      line-height: 1.15;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .section-copy {
+      max-width: 940px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .card,
+    .cv-entry {
+      padding: 26px;
+    }
+
+    .pub-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .pub-item {
+      padding: 22px 24px;
+    }
+
+    .pub-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .pub-title {
+      font-size: 1.02rem;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .cv-entry ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .cv-entry p + p,
+    .cv-entry li + li {
+      margin-top: 8px;
+    }
+
+    .contact-box {
+      padding: 34px;
+      background: linear-gradient(135deg, #13284f, #1d3f91);
+      color: #fff;
+    }
+
+    .contact-box h2 {
+      color: #fff;
+    }
+
+    .contact-box p,
+    .contact-box li,
+    .contact-box a {
+      color: rgba(255,255,255,0.93);
+    }
+
+    .footer {
+      padding: 34px 0 56px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .spacer {
+      height: 8px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .cv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main,
+      .hero-side,
+      .card,
+      .pub-item,
+      .cv-entry,
+      .contact-box {
+        padding: 24px;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Dr. Vivek Kamat</h1>
-    <div class="subtitle">Assistant Research Professor · Vanderbilt University</div>
 
-    <h2>Research Focus</h2>
-    <p>
-      AI-enabled biosensing, additive manufacturing, and intelligent healthcare systems.
-      My research focuses on wearable biosensors, smart wound-care systems, and data-driven
-      platforms for real-time clinical monitoring.
-    </p>
-
-    <h2>Research Vision</h2>
-    <p>
-      The future of healthcare lies in the seamless integration of materials, electronics,
-      sensing architectures, and artificial intelligence. My work develops unified systems
-      that enable real-time diagnostics and decision-making across clinical and engineering environments.
-    </p>
-
-    <h2>Key Areas</h2>
-    <ul>
-      <li>Wearable biosensors and wound monitoring</li>
-      <li>AI for sensing and diagnostics</li>
-      <li>Additive manufacturing and plasma-assisted printing</li>
-      <li>Biocompatible materials and lab-on-chip systems</li>
-    </ul>
-
-    <h2>Selected Publications</h2>
-    <ul>
-      <li>Electrochemical detection of testosterone using MIP-based sensing platform</li>
-      <li>AI-enabled detection of DNA damage in comet assay</li>
-      <li>Microfluidic reactor-assisted nanoparticle synthesis</li>
-      <li>Smart bandage for wound monitoring</li>
-    </ul>
-
-    <h2>Contact</h2>
-    <p>Email: kamatbiotech@gmail.com</p>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">Dr. Vivek A. Kamat</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
   </div>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-main">
+          <div class="tag"> Microfluidic systems · Cellular biointerfaces · AI-enabled sensing · Additive manufacturing
+          </div>
+          <h1>Dr. Vivek A. Kamat</h1>
+          <p class="subtitle">Research Assistant Professor · Vanderbilt University</p>
+          <p class="hero-text">
+            My research focuses on the development of microfluidic systems, cellular biointerfaces, AI-integrated biosensing platforms, and additive biofabrication approaches to investigate biological processes at the intersection of biology, electronics, and engineering. I study the fundamental interactions between materials, electronic systems, and living cells to understand phenomena across cellular, tissue, and system-level scales. This work integrates fluidic architectures, device platforms, and computational frameworks to enable quantitative interrogation of biological and physiological signals. The overarching objective is to establish cross-disciplinary principles governing bioelectronic interfaces and to advance scalable experimental platforms for studying complex biological systems.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#cv">View Full Academic Profile</a>
+            <a class="btn btn-secondary" href="mailto:kamatbiotech@gmail.com">Email</a>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div>
+            <h3>Research Vision</h3>
+            <p>
+              The future of translational sensing lies in systems that do not treat
+              materials, device design, fluid handling, electronics, and data analysis
+              as separate layers, but as a single integrated architecture. My work
+              seeks to establish such unified platforms across biosensing, wearable
+              health monitoring, and intelligent diagnostics.
+            </p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>330+</strong>
+              <span>Google Scholar citations</span>
+            </div>
+            <div class="stat">
+              <strong>29+</strong>
+              <span>Peer-reviewed publications</span>
+            </div>
+            <div class="stat">
+              <strong>9</strong>
+              <span>h-index</span>
+            </div>
+            <div class="stat">
+              <strong>20+</strong>
+              <span>Students mentored</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">About</div>
+          <h2>Academic profile</h2>
+        </div>
+        <p class="section-copy">
+          Dr. Vivek A. Kamat is a Research Assistant Professor whose scholarly work
+          spans biosensors, microfluidics, wearable sensing technologies, nanoparticle-enabled
+          systems, and AI-assisted analytical platforms. His academic trajectory has
+          been shaped by a consistent emphasis on translational engineering, wherein
+          fundamental advances in materials, electrochemistry, device design, and
+          biomedical systems are systematically directed toward clinically relevant
+          and technologically deployable solutions.
+        </p>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Research Themes</div>
+          <h2>Core areas of scholarship</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Biosensors and electrochemical sensing</h3>
+            <p>
+              Development of advanced sensing platforms for hormone detection,
+              infectious disease diagnostics, and physiologically relevant biochemical
+              measurements using electrochemical and magnetic transduction strategies.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Microfluidics and biomolecular systems</h3>
+            <p>
+              Design of microfluidic platforms for controlled processing, biological
+              analysis, and downstream purification with emphasis on continuous
+              flow architectures and translational usability.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Wearable and intelligent healthcare devices</h3>
+            <p>
+              Fabrication of wearable sensing systems and smart wound-monitoring
+              platforms capable of integrating sensing, data acquisition, and
+              physiological interpretation in real time.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>AI-enabled sensing systems</h3>
+            <p>
+              Application of machine learning and intelligent data-processing methods
+              to automate signal interpretation, quantify biological responses,
+              and enhance decision-making in sensing-driven healthcare environments.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Selected Publications</div>
+          <h2>Highlighted scholarly outputs</h2>
+        </div>
+
+        <div class="pub-list">
+          <div class="pub-item">
+            <div class="pub-label">Publication 1</div>
+            <p class="pub-title">Label and bio-active free electrochemical detection of testosterone hormone using MIP-based sensing platform</p>
+          </div>
+          <div class="pub-item">
+            <div class="pub-label">Publication 2</div>
+            <p class="pub-title">AI enabled ensemble deep learning method for automated sensing and quantification of DNA damage in comet assay</p>
+          </div>
+          <div class="pub-item">
+            <div class="pub-label">Publication 3</div>
+            <p class="pub-title">Active microfluidic reactor-assisted controlled synthesis of nanoparticles and related potential biomedical applications</p>
+          </div>
+          <div class="pub-item">
+            <div class="pub-label">Publication 4</div>
+            <p class="pub-title">Smart Bandage to Monitor Combat Wounds and Control Bacterial Infections During Military Operations</p>
+          </div>
+          <div class="pub-item">
+            <div class="pub-label">Publication 5</div>
+            <p class="pub-title">Bio-acceptability of wearable sensors: A mechanistic study towards evaluating ionic leaching induced cellular inflammation</p>
+          </div>
+          <div class="pub-item">
+            <div class="pub-label">Publication 6</div>
+            <p class="pub-title">Magnetic point-of-care biosensors for infectious disease diagnosis</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Curriculum Vitae</div>
+          <h2>Full academic and professional record</h2>
+        </div>
+
+        <div class="cv-grid">
+
+          <div class="cv-entry">
+            <h3>1. Education</h3>
+            <p>Ph.D., Biotechnology – Savitribai Phule Pune University, India (2016)</p>
+            <p>M.Sc., Biotechnology – Savitribai Phule Pune University, India (2011)</p>
+            <p>B.Sc., Biotechnology – Savitribai Phule Pune University, India (2009)</p>
+          </div>
+
+          <div class="cv-entry">
+            <h3>2. Academic Appointments</h3>
+            <p>Assistant Research Professor – Vanderbilt University (Current)</p>
+            <p>Research Scientist – Florida International University (2022–Present in prior record)</p>
+            <p>Assistant Research Professor – Florida International University (2021–2022)</p>
+            <p>Assistant Teaching Professor – Florida International University (2020–2021)</p>
+            <p>Postdoctoral Research Associate – Florida International University (2017–2020)</p>
+          </div>
+
+          <div class="cv-entry">
+            <h3>3. Research Impact Metrics</h3>
+            <p>Google Scholar Citations: 330+</p>
+            <p>h-index: 9</p>
+            <p>i10-index: 9</p>
+            <p>Peer-reviewed publications: 29+</p>
+          </div>
+
+          <div class="cv-entry">
+            <h3>4. Original Scientific Contributions</h3>
+            <p>
+              Research contributions in biosensors, electrochemical sensing,
+              microfluidic platforms, AI-enabled sensing systems, nanoparticle synthesis,
+              and wearable diagnostic devices.
+            </p>
+            <p>
+              Publications include work in Scientific Reports, ACS Applied Materials & Interfaces,
+              Biosensors and Bioelectronics, Materials Science and Engineering B,
+              and ECS Sensors Plus.
+            </p>
+          </div>
+
+          <div class="cv-entry">
+            <h3>5. Intellectual Property</h3>
+            <p>Continuous Flow Downstream Microfluidic Platform (DM-Chip) for Purification of Biomolecules</p>
+            <p>Invention Disclosure ID: D2021-0023 – Florida International University (2021)</p>
+            <div class="spacer"></div>
+            <p>VR-Enhanced Glove with Dynamic Weight Simulation</p>
+            <p>Invention Disclosure ID: D2025-0026 – Florida International University (2025)</p>
+          </div>
+
+          <div class="cv-entry">
+            <h3>6. Editorial Roles</h3>
+            <p>Editorial Board Member – Scientific Reports (Nature Portfolio) (2023–Present)</p>
+          </div>
+
+          <div class="cv-entry">
+            <h3>7. Judging the Work of Others (Peer Review Activities)</h3>
+            <ul>
+              <li>Reviewer – Scientific Reports (Springer Nature)</li>
+              <li>Reviewer – Frontiers in Plant Science</li>
+              <li>Reviewer – Advanced NanoBiomed Research (Wiley)</li>
+              <li>Reviewer – Health Science Reports (Wiley)</li>
+              <li>Reviewer – Advanced Intelligent Discovery (Wiley)</li>
+              <li>Reviewer – IEEE Sensors Letters</li>
+              <li>Reviewer – Journal of The Electrochemical Society</li>
+              <li>Reviewer – ECS Sensors Plus</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <h3>8. Professional Service</h3>
+            <ul>
+              <li>Community Inclusion Committee Member – Electrochemical Society (2025–2029)</li>
+              <li>Institutional Engagement Committee Member – Electrochemical Society (2025–2028)</li>
+              <li>Judge – Electrochemical Society Student Poster Competition</li>
+              <li>Judge – Florida International University Undergraduate Research Symposium</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <h3>9. Professional Memberships</h3>
+            <ul>
+              <li>Electrochemical Society (ECS)</li>
+              <li>American Chemical Society (ACS)</li>
+              <li>Royal Society of Chemistry (AMRSC)</li>
+              <li>European Federation of Biotechnology – Member since 2014</li>
+              <li>Indian Institute of Science Sensor Society (ISSS) – Life Member since 2013</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <h3>10. Industry Collaboration and Outreach</h3>
+            <ul>
+              <li>Thermo Fisher Scientific / Gibco – BenchStable Cell Culture Media Beta Tester (2021)</li>
+              <li>Featured in Thermo Fisher “Love Your Cells” Scientific Outreach Campaign (2021)</li>
+              <li>Invited Speaker – Gibco Cell Culture Hero Webinar on Microfluidic 2D/3D Cell Culture (June 27, 2019)</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <h3>11. Invited Talks</h3>
+            <ul>
+              <li>AMERI-MESH Conference – Florida International University – Invited talk on wearable wound sensors (2022)</li>
+              <li>PRiME 2024 Electrochemical Society Meeting – Oral Presentation (2024)</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <h3>12. Teaching Experience</h3>
+            <p>
+              Courses taught include Introduction to Engineering, Electrical Hardware for AI Systems,
+              Signals and Systems, Edge AI Systems and Data Harvesting, and Internet of Things sensor platforms.
+            </p>
+          </div>
+
+          <div class="cv-entry">
+            <h3>13. Student Mentorship</h3>
+            <p>
+              Mentored and supervised 20+ master's and undergraduate students in biosensors,
+              microfluidics, wearable sensing technologies, and AI-enabled sensing platforms.
+            </p>
+          </div>
+
+          <div class="cv-entry">
+            <h3>14. Technology Translation</h3>
+            <p>
+              Participation in NSF I-Corps commercialization programs and technology transfer
+              activities focused on wearable biosensors, microfluidic diagnostics,
+              and sensing platforms.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div class="section-head">
+            <div class="eyebrow" style="color: rgba(255,255,255,0.78);">Contact</div>
+            <h2>Collaboration and academic inquiries</h2>
+          </div>
+          <p>Email: <a href="mailto:kamatbiotech@gmail.com">kamatbiotech@gmail.com</a></p>
+          <p>Google Scholar: <a href="https://scholar.google.com/citations?user=pZA3biMAAAAJ" target="_blank">View profile</a></p>
+          <p>
+            I welcome collaborations across biosensors, microfluidics, wearable diagnostics,
+            AI-enabled sensing systems, and translational biomedical engineering.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="footer">
+    <div class="container">
+      © 2026 Dr. Vivek A. Kamat · Academic Website
+    </div>
+  </div>
+
 </body>
 </html>
