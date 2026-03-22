@@ -3,23 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Vivek A. Kamat | Assistant Research Professor</title>
+  <title>Dr. Vivek A. Kamat | Research Assistant Professor</title>
   <meta
     name="description"
-    content="Academic website of Dr. Vivek A. Kamat, Research Assistant Professor at Vanderbilt University. Research in biosensors, microfluidics, wearable sensors, AI-enabled sensing systems, and translational healthcare technologies."
+    content="Academic website of Dr. Vivek A. Kamat, Research Assistant Professor at Vanderbilt University. Research in microfluidic systems, cellular biointerfaces, AI-enabled sensing systems, biosensors, wearable technologies, and additive manufacturing."
   />
   <style>
     :root {
-      --bg: #f7f9fc;
+      --bg: #f6f8fc;
       --surface: #ffffff;
+      --surface-2: #eef4ff;
       --text: #14213d;
-      --muted: #4f5d75;
-      --line: #d9e2ec;
-      --accent: #1d3f91;
-      --accent-soft: #e8f0ff;
-      --max: 1180px;
-      --radius: 20px;
-      --shadow: 0 10px 30px rgba(20, 33, 61, 0.08);
+      --muted: #5c6b85;
+      --line: #dbe4f0;
+      --accent: #1d4aa8;
+      --accent-2: #102c67;
+      --soft: #e9f1ff;
+      --shadow: 0 16px 40px rgba(16, 34, 61, 0.08);
+      --radius: 22px;
+      --max: 1220px;
     }
 
     * { box-sizing: border-box; }
@@ -28,7 +30,9 @@
     body {
       margin: 0;
       font-family: "Inter", "Segoe UI", Arial, sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top right, rgba(29,74,168,0.06), transparent 28%),
+        linear-gradient(180deg, #f8fbff 0%, #f6f8fc 100%);
       color: var(--text);
       line-height: 1.7;
     }
@@ -38,8 +42,11 @@
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    a:hover { text-decoration: underline; }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     .container {
@@ -51,8 +58,8 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(247, 249, 252, 0.94);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      background: rgba(248, 251, 255, 0.9);
       border-bottom: 1px solid var(--line);
     }
 
@@ -61,42 +68,47 @@
       margin: 0 auto;
       padding: 18px 0;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      align-items: center;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
     .brand {
       font-weight: 800;
-      font-size: 1.05rem;
-      color: var(--text);
-      letter-spacing: 0.02em;
+      font-size: 1.08rem;
+      color: var(--accent-2);
+      letter-spacing: 0.01em;
     }
 
     .nav-links {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
-      font-size: 0.95rem;
+      font-size: 0.96rem;
+    }
+
+    .nav-links a {
+      color: var(--accent-2);
+      font-weight: 600;
     }
 
     .hero {
-      padding: 78px 0 42px;
+      padding: 56px 0 26px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: 26px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
       align-items: stretch;
     }
 
-    .hero-main,
-    .hero-side,
+    .panel,
     .card,
     .pub-item,
-    .cv-entry,
+    .cv-item,
+    .project-card,
     .contact-box {
       background: var(--surface);
       border: 1px solid var(--line);
@@ -105,53 +117,58 @@
     }
 
     .hero-main {
-      padding: 42px;
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-side {
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(29,74,168,0.14), transparent 60%);
+      pointer-events: none;
     }
 
     .tag {
       display: inline-block;
-      padding: 8px 14px;
+      padding: 10px 16px;
       border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.9rem;
+      background: var(--soft);
+      color: var(--accent-2);
+      font-size: 0.92rem;
       font-weight: 700;
       margin-bottom: 22px;
     }
 
     h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2.4rem, 5vw, 4.5rem);
-      line-height: 1.04;
-      letter-spacing: -0.035em;
+      margin: 0 0 14px;
+      font-size: clamp(2.6rem, 5.4vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
       color: var(--accent);
     }
 
     .subtitle {
       margin: 0 0 18px;
-      font-size: 1.25rem;
+      font-size: 1.28rem;
       color: var(--muted);
     }
 
     .hero-text {
-      margin: 0 0 28px;
-      font-size: 1.06rem;
-      color: var(--text);
-      max-width: 760px;
+      margin: 0 0 26px;
+      font-size: 1.08rem;
+      max-width: 820px;
     }
 
     .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
     .btn {
@@ -169,7 +186,7 @@
     }
 
     .btn-primary:hover {
-      background: #17357d;
+      background: var(--accent-2);
       text-decoration: none;
     }
 
@@ -179,50 +196,91 @@
     }
 
     .btn-secondary:hover {
-      background: #f0f4fb;
+      background: var(--soft);
       text-decoration: none;
     }
 
-    .hero-side h3,
+    .hero-side {
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .profile-box {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #eef4ff, #dfeaff);
+      min-height: 280px;
+    }
+
+    .profile-box img {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+    }
+
+    .profile-fallback {
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      color: var(--accent-2);
+      font-weight: 700;
+      background:
+        linear-gradient(135deg, rgba(29,74,168,0.14), rgba(16,44,103,0.08)),
+        radial-gradient(circle at top left, rgba(29,74,168,0.18), transparent 35%),
+        #eef4ff;
+    }
+
+    .vision-card {
+      padding: 22px;
+      background: linear-gradient(180deg, #ffffff, #f9fbff);
+    }
+
+    .vision-card h3,
     .card h3,
-    .cv-entry h3 {
+    .project-body h3,
+    .cv-item h3 {
       margin: 0 0 10px;
       color: var(--accent);
-      font-size: 1.15rem;
+      font-size: 1.16rem;
     }
 
-    .hero-side p,
+    .vision-card p,
     .card p,
-    .card li,
-    .cv-entry p,
-    .cv-entry li {
-      color: var(--muted);
+    .cv-item p,
+    .cv-item li,
+    .project-body p {
       margin: 0;
+      color: var(--muted);
     }
 
-    .stats {
+    .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      margin-top: 20px;
     }
 
     .stat {
       padding: 18px;
       border-radius: 16px;
-      background: #f8fbff;
       border: 1px solid var(--line);
+      background: linear-gradient(180deg, #f8fbff, #f1f6ff);
     }
 
     .stat strong {
       display: block;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--accent);
       margin-bottom: 4px;
     }
 
     section {
-      padding: 26px 0;
+      padding: 28px 0;
     }
 
     .section-head {
@@ -240,31 +298,92 @@
 
     h2 {
       margin: 0;
-      font-size: clamp(1.8rem, 3vw, 2.45rem);
-      line-height: 1.15;
-      color: var(--accent);
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      line-height: 1.12;
       letter-spacing: -0.02em;
+      color: var(--accent);
     }
 
     .section-copy {
-      max-width: 940px;
       margin-top: 14px;
+      max-width: 950px;
       color: var(--muted);
-      font-size: 1.03rem;
+      font-size: 1.04rem;
     }
 
-    .grid-2,
-    .grid-3 {
+    .grid-2 {
       display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
 
-    .card,
-    .cv-entry {
-      padding: 26px;
+    .card {
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 110px;
+      height: 110px;
+      background: radial-gradient(circle, rgba(29,74,168,0.09), transparent 65%);
+      pointer-events: none;
+    }
+
+    .project-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-media {
+      height: 215px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(135deg, #edf3ff, #dfe9ff);
+    }
+
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-fallback {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      text-align: center;
+      color: var(--accent-2);
+      font-weight: 700;
+      background:
+        radial-gradient(circle at top right, rgba(29,74,168,0.18), transparent 35%),
+        linear-gradient(135deg, #edf3ff, #dfe9ff);
+    }
+
+    .project-body {
+      padding: 22px;
+      flex: 1;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
     }
 
     .pub-list {
@@ -277,18 +396,24 @@
     }
 
     .pub-label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       color: var(--accent);
       font-weight: 800;
       margin-bottom: 8px;
     }
 
     .pub-title {
-      font-size: 1.02rem;
-      color: var(--text);
+      font-size: 1.03rem;
       margin: 0;
+      color: var(--text);
+    }
+
+    .pub-meta {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.96rem;
     }
 
     .cv-grid {
@@ -297,58 +422,47 @@
       gap: 20px;
     }
 
-    .cv-entry ul {
-      margin: 0;
-      padding-left: 20px;
+    .cv-item {
+      padding: 24px;
     }
 
-    .cv-entry p + p,
-    .cv-entry li + li {
+    .cv-item ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .cv-item p + p,
+    .cv-item li + li {
       margin-top: 8px;
     }
 
     .contact-box {
       padding: 34px;
-      background: linear-gradient(135deg, #13284f, #1d3f91);
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 30%),
+        linear-gradient(135deg, #10264f, #1d4aa8);
       color: #fff;
     }
 
-    .contact-box h2 {
-      color: #fff;
-    }
-
+    .contact-box h2 { color: #fff; }
     .contact-box p,
-    .contact-box li,
-    .contact-box a {
-      color: rgba(255,255,255,0.93);
-    }
+    .contact-box a { color: rgba(255,255,255,0.94); }
 
     .footer {
-      padding: 34px 0 56px;
+      padding: 38px 0 58px;
       text-align: center;
       color: var(--muted);
       font-size: 0.95rem;
-    }
-
-    .spacer {
-      height: 8px;
     }
 
     @media (max-width: 980px) {
       .hero-grid,
       .grid-2,
       .grid-3,
-      .cv-grid {
+      .cv-grid,
+      .stats-grid {
         grid-template-columns: 1fr;
-      }
-
-      .hero-main,
-      .hero-side,
-      .card,
-      .pub-item,
-      .cv-entry,
-      .contact-box {
-        padding: 24px;
       }
 
       .nav-inner {
@@ -356,20 +470,25 @@
         align-items: flex-start;
       }
 
-      .hero {
-        padding-top: 58px;
+      .hero-main,
+      .hero-side,
+      .card,
+      .pub-item,
+      .cv-item,
+      .contact-box {
+        padding: 24px;
       }
     }
   </style>
 </head>
 <body>
-
   <div class="nav">
     <div class="nav-inner">
       <div class="brand">Dr. Vivek A. Kamat</div>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
         <a href="#publications">Publications</a>
         <a href="#cv">CV</a>
         <a href="#contact">Contact</a>
@@ -380,9 +499,8 @@
   <header class="hero">
     <div class="container">
       <div class="hero-grid">
-        <div class="hero-main">
-          <div class="tag"> Microfluidic systems · Cellular biointerfaces · AI-enabled sensing · Additive manufacturing
-          </div>
+        <div class="panel hero-main">
+          <div class="tag">Microfluidic systems · Cellular biointerfaces · AI-enabled sensing · Additive manufacturing</div>
           <h1>Dr. Vivek A. Kamat</h1>
           <p class="subtitle">Research Assistant Professor · Vanderbilt University</p>
           <p class="hero-text">
@@ -390,23 +508,32 @@
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#cv">View Full Academic Profile</a>
+            <a class="btn btn-secondary" href="cv.pdf" target="_blank">Download CV</a>
             <a class="btn btn-secondary" href="mailto:kamatbiotech@gmail.com">Email</a>
           </div>
         </div>
 
-        <aside class="hero-side">
-          <div>
+        <aside class="panel hero-side">
+          <div class="profile-box">
+            <img
+              src="images/profile.jpg"
+              alt="Dr. Vivek Kamat"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+            />
+            <div class="profile-fallback" style="display:none;">
+              Add your professional profile image here<br />
+              <span style="font-weight:500; opacity:0.8;">images/profile.jpg</span>
+            </div>
+          </div>
+
+          <div class="vision-card">
             <h3>Research Vision</h3>
             <p>
-              The future of translational sensing lies in systems that do not treat
-              materials, device design, fluid handling, electronics, and data analysis
-              as separate layers, but as a single integrated architecture. My work
-              seeks to establish such unified platforms across biosensing, wearable
-              health monitoring, and intelligent diagnostics.
+              The future of translational sensing lies in systems that do not treat materials, device design, fluid handling, electronics, and data analysis as separate layers, but as a single integrated architecture. My work seeks to establish such unified platforms across biosensing, wearable health monitoring, and intelligent diagnostics.
             </p>
           </div>
 
-          <div class="stats">
+          <div class="stats-grid">
             <div class="stat">
               <strong>330+</strong>
               <span>Google Scholar citations</span>
@@ -430,7 +557,6 @@
   </header>
 
   <main>
-
     <section id="about">
       <div class="container">
         <div class="section-head">
@@ -438,13 +564,7 @@
           <h2>Academic profile</h2>
         </div>
         <p class="section-copy">
-          Dr. Vivek A. Kamat is a Research Assistant Professor whose scholarly work
-          spans biosensors, microfluidics, wearable sensing technologies, nanoparticle-enabled
-          systems, and AI-assisted analytical platforms. His academic trajectory has
-          been shaped by a consistent emphasis on translational engineering, wherein
-          fundamental advances in materials, electrochemistry, device design, and
-          biomedical systems are systematically directed toward clinically relevant
-          and technologically deployable solutions.
+          Dr. Vivek A. Kamat is a Research Assistant Professor whose scholarly work spans biosensors, microfluidics, wearable sensing technologies, nanoparticle-enabled systems, and AI-assisted analytical platforms. His academic trajectory has been shaped by a consistent emphasis on translational engineering, wherein fundamental advances in materials, electrochemistry, device design, and biomedical systems are systematically directed toward clinically relevant and technologically deployable solutions.
         </p>
       </div>
     </section>
@@ -460,38 +580,110 @@
           <div class="card">
             <h3>Biosensors and electrochemical sensing</h3>
             <p>
-              Development of advanced sensing platforms for hormone detection,
-              infectious disease diagnostics, and physiologically relevant biochemical
-              measurements using electrochemical and magnetic transduction strategies.
+              Development of advanced sensing platforms for hormone detection, infectious disease diagnostics, and physiologically relevant biochemical measurements using electrochemical and magnetic transduction strategies.
             </p>
           </div>
 
           <div class="card">
             <h3>Microfluidics and biomolecular systems</h3>
             <p>
-              Design of microfluidic platforms for controlled processing, biological
-              analysis, and downstream purification with emphasis on continuous
-              flow architectures and translational usability.
+              Design of microfluidic platforms for controlled processing, biological analysis, and downstream purification with emphasis on continuous flow architectures and translational usability.
             </p>
           </div>
 
           <div class="card">
             <h3>Wearable and intelligent healthcare devices</h3>
             <p>
-              Fabrication of wearable sensing systems and smart wound-monitoring
-              platforms capable of integrating sensing, data acquisition, and
-              physiological interpretation in real time.
+              Fabrication of wearable sensing systems and smart wound-monitoring platforms capable of integrating sensing, data acquisition, and physiological interpretation in real time.
             </p>
           </div>
 
           <div class="card">
             <h3>AI-enabled sensing systems</h3>
             <p>
-              Application of machine learning and intelligent data-processing methods
-              to automate signal interpretation, quantify biological responses,
-              and enhance decision-making in sensing-driven healthcare environments.
+              Application of machine learning and intelligent data-processing methods to automate signal interpretation, quantify biological responses, and enhance decision-making in sensing-driven healthcare environments.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Featured Projects</div>
+          <h2>Selected translational platforms</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="project-card">
+            <div class="project-media">
+              <img
+                src="images/project-wound.jpg"
+                alt="Smart wound monitoring systems"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+              />
+              <div class="project-fallback" style="display:none;">
+                Smart wound monitoring image<br />
+                <span style="font-weight:500; opacity:0.8;">images/project-wound.jpg</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Smart Wound Monitoring Systems</h3>
+              <p>
+                Integrated wound-care technologies combining sensing, biomarker detection, wearable electronics, and data-driven healing assessment.
+              </p>
+              <div class="project-links">
+                <a href="#publications">Related papers</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img
+                src="images/project-microfluidics.jpg"
+                alt="Microfluidic biointerfaces"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+              />
+              <div class="project-fallback" style="display:none;">
+                Microfluidics project image<br />
+                <span style="font-weight:500; opacity:0.8;">images/project-microfluidics.jpg</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Microfluidic Biointerfaces</h3>
+              <p>
+                Controlled fluidic platforms for downstream purification, biological studies, and complex interactions between cells, materials, and engineered microsystems.
+              </p>
+              <div class="project-links">
+                <a href="#research">Research area</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img
+                src="images/project-additive.jpg"
+                alt="Additive manufacturing and AI"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+              />
+              <div class="project-fallback" style="display:none;">
+                Additive manufacturing image<br />
+                <span style="font-weight:500; opacity:0.8;">images/project-additive.jpg</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Additive Manufacturing and AI</h3>
+              <p>
+                AI-guided fabrication and device development workflows integrating additive manufacturing, functional materials, and smart process control.
+              </p>
+              <div class="project-links">
+                <a href="#cv">Academic profile</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -507,27 +699,42 @@
           <div class="pub-item">
             <div class="pub-label">Publication 1</div>
             <p class="pub-title">Label and bio-active free electrochemical detection of testosterone hormone using MIP-based sensing platform</p>
+            <div class="pub-meta">Electrochemical biosensing · Hormone detection</div>
           </div>
+
           <div class="pub-item">
             <div class="pub-label">Publication 2</div>
             <p class="pub-title">AI enabled ensemble deep learning method for automated sensing and quantification of DNA damage in comet assay</p>
+            <div class="pub-meta">AI for bioanalysis · Automated quantification</div>
           </div>
+
           <div class="pub-item">
             <div class="pub-label">Publication 3</div>
             <p class="pub-title">Active microfluidic reactor-assisted controlled synthesis of nanoparticles and related potential biomedical applications</p>
+            <div class="pub-meta">Microfluidics · Nanoparticle synthesis</div>
           </div>
+
           <div class="pub-item">
             <div class="pub-label">Publication 4</div>
             <p class="pub-title">Smart Bandage to Monitor Combat Wounds and Control Bacterial Infections During Military Operations</p>
+            <div class="pub-meta">Wearable wound care · Defense health applications</div>
           </div>
+
           <div class="pub-item">
             <div class="pub-label">Publication 5</div>
             <p class="pub-title">Bio-acceptability of wearable sensors: A mechanistic study towards evaluating ionic leaching induced cellular inflammation</p>
+            <div class="pub-meta">Biocompatibility · Wearable systems</div>
           </div>
+
           <div class="pub-item">
             <div class="pub-label">Publication 6</div>
             <p class="pub-title">Magnetic point-of-care biosensors for infectious disease diagnosis</p>
+            <div class="pub-meta">Point-of-care diagnostics · Magnetic biosensing</div>
           </div>
+        </div>
+
+        <div class="hero-actions" style="margin-top:22px;">
+          <a class="btn btn-secondary" href="https://scholar.google.com/citations?user=pZA3biMAAAAJ" target="_blank">View Google Scholar</a>
         </div>
       </div>
     </section>
@@ -536,65 +743,59 @@
       <div class="container">
         <div class="section-head">
           <div class="eyebrow">Curriculum Vitae</div>
-          <h2>Full academic and professional record</h2>
+          <h2>Academic and professional record</h2>
         </div>
 
         <div class="cv-grid">
-
-          <div class="cv-entry">
-            <h3>1. Education</h3>
+          <div class="cv-item">
+            <h3>Education</h3>
             <p>Ph.D., Biotechnology – Savitribai Phule Pune University, India (2016)</p>
             <p>M.Sc., Biotechnology – Savitribai Phule Pune University, India (2011)</p>
             <p>B.Sc., Biotechnology – Savitribai Phule Pune University, India (2009)</p>
           </div>
 
-          <div class="cv-entry">
-            <h3>2. Academic Appointments</h3>
-            <p>Assistant Research Professor – Vanderbilt University (Current)</p>
-            <p>Research Scientist – Florida International University (2022–Present in prior record)</p>
-            <p>Assistant Research Professor – Florida International University (2021–2022)</p>
-            <p>Assistant Teaching Professor – Florida International University (2020–2021)</p>
-            <p>Postdoctoral Research Associate – Florida International University (2017–2020)</p>
+          <div class="cv-item">
+            <h3>Academic Appointments</h3>
+            <p>Research Assistant Professor – Vanderbilt University (Current)</p>
+            <p>Research Scientist – Florida International University</p>
+            <p>Assistant Research Professor – Florida International University</p>
+            <p>Assistant Teaching Professor – Florida International University</p>
+            <p>Postdoctoral Research Associate – Florida International University</p>
           </div>
 
-          <div class="cv-entry">
-            <h3>3. Research Impact Metrics</h3>
+          <div class="cv-item">
+            <h3>Research Impact Metrics</h3>
             <p>Google Scholar Citations: 330+</p>
             <p>h-index: 9</p>
             <p>i10-index: 9</p>
             <p>Peer-reviewed publications: 29+</p>
           </div>
 
-          <div class="cv-entry">
-            <h3>4. Original Scientific Contributions</h3>
+          <div class="cv-item">
+            <h3>Original Scientific Contributions</h3>
             <p>
-              Research contributions in biosensors, electrochemical sensing,
-              microfluidic platforms, AI-enabled sensing systems, nanoparticle synthesis,
-              and wearable diagnostic devices.
+              Research contributions in biosensors, electrochemical sensing, microfluidic platforms, AI-enabled sensing systems, nanoparticle synthesis, and wearable diagnostic devices.
             </p>
             <p>
-              Publications include work in Scientific Reports, ACS Applied Materials & Interfaces,
-              Biosensors and Bioelectronics, Materials Science and Engineering B,
-              and ECS Sensors Plus.
+              Publications include work in Scientific Reports, ACS Applied Materials & Interfaces, Biosensors and Bioelectronics, Materials Science and Engineering B, and ECS Sensors Plus.
             </p>
           </div>
 
-          <div class="cv-entry">
-            <h3>5. Intellectual Property</h3>
+          <div class="cv-item">
+            <h3>Intellectual Property</h3>
             <p>Continuous Flow Downstream Microfluidic Platform (DM-Chip) for Purification of Biomolecules</p>
             <p>Invention Disclosure ID: D2021-0023 – Florida International University (2021)</p>
-            <div class="spacer"></div>
-            <p>VR-Enhanced Glove with Dynamic Weight Simulation</p>
+            <p style="margin-top:10px;">VR-Enhanced Glove with Dynamic Weight Simulation</p>
             <p>Invention Disclosure ID: D2025-0026 – Florida International University (2025)</p>
           </div>
 
-          <div class="cv-entry">
-            <h3>6. Editorial Roles</h3>
+          <div class="cv-item">
+            <h3>Editorial Roles</h3>
             <p>Editorial Board Member – Scientific Reports (Nature Portfolio) (2023–Present)</p>
           </div>
 
-          <div class="cv-entry">
-            <h3>7. Judging the Work of Others (Peer Review Activities)</h3>
+          <div class="cv-item">
+            <h3>Judging the Work of Others</h3>
             <ul>
               <li>Reviewer – Scientific Reports (Springer Nature)</li>
               <li>Reviewer – Frontiers in Plant Science</li>
@@ -607,8 +808,8 @@
             </ul>
           </div>
 
-          <div class="cv-entry">
-            <h3>8. Professional Service</h3>
+          <div class="cv-item">
+            <h3>Professional Service</h3>
             <ul>
               <li>Community Inclusion Committee Member – Electrochemical Society (2025–2029)</li>
               <li>Institutional Engagement Committee Member – Electrochemical Society (2025–2028)</li>
@@ -617,8 +818,8 @@
             </ul>
           </div>
 
-          <div class="cv-entry">
-            <h3>9. Professional Memberships</h3>
+          <div class="cv-item">
+            <h3>Professional Memberships</h3>
             <ul>
               <li>Electrochemical Society (ECS)</li>
               <li>American Chemical Society (ACS)</li>
@@ -628,8 +829,8 @@
             </ul>
           </div>
 
-          <div class="cv-entry">
-            <h3>10. Industry Collaboration and Outreach</h3>
+          <div class="cv-item">
+            <h3>Industry Collaboration and Outreach</h3>
             <ul>
               <li>Thermo Fisher Scientific / Gibco – BenchStable Cell Culture Media Beta Tester (2021)</li>
               <li>Featured in Thermo Fisher “Love Your Cells” Scientific Outreach Campaign (2021)</li>
@@ -637,39 +838,38 @@
             </ul>
           </div>
 
-          <div class="cv-entry">
-            <h3>11. Invited Talks</h3>
+          <div class="cv-item">
+            <h3>Invited Talks</h3>
             <ul>
               <li>AMERI-MESH Conference – Florida International University – Invited talk on wearable wound sensors (2022)</li>
               <li>PRiME 2024 Electrochemical Society Meeting – Oral Presentation (2024)</li>
             </ul>
           </div>
 
-          <div class="cv-entry">
-            <h3>12. Teaching Experience</h3>
+          <div class="cv-item">
+            <h3>Teaching Experience</h3>
             <p>
-              Courses taught include Introduction to Engineering, Electrical Hardware for AI Systems,
-              Signals and Systems, Edge AI Systems and Data Harvesting, and Internet of Things sensor platforms.
+              Courses taught include Introduction to Engineering, Electrical Hardware for AI Systems, Signals and Systems, Edge AI Systems and Data Harvesting, and Internet of Things sensor platforms.
             </p>
           </div>
 
-          <div class="cv-entry">
-            <h3>13. Student Mentorship</h3>
+          <div class="cv-item">
+            <h3>Student Mentorship</h3>
             <p>
-              Mentored and supervised 20+ master's and undergraduate students in biosensors,
-              microfluidics, wearable sensing technologies, and AI-enabled sensing platforms.
+              Mentored and supervised 20+ master's and undergraduate students in biosensors, microfluidics, wearable sensing technologies, and AI-enabled sensing platforms.
             </p>
           </div>
 
-          <div class="cv-entry">
-            <h3>14. Technology Translation</h3>
+          <div class="cv-item">
+            <h3>Technology Translation</h3>
             <p>
-              Participation in NSF I-Corps commercialization programs and technology transfer
-              activities focused on wearable biosensors, microfluidic diagnostics,
-              and sensing platforms.
+              Participation in NSF I-Corps commercialization programs and technology transfer activities focused on wearable biosensors, microfluidic diagnostics, and sensing platforms.
             </p>
           </div>
+        </div>
 
+        <div class="hero-actions" style="margin-top:22px;">
+          <a class="btn btn-primary" href="cv.pdf" target="_blank">Download Full CV</a>
         </div>
       </div>
     </section>
@@ -678,19 +878,17 @@
       <div class="container">
         <div class="contact-box">
           <div class="section-head">
-            <div class="eyebrow" style="color: rgba(255,255,255,0.78);">Contact</div>
+            <div class="eyebrow" style="color: rgba(255,255,255,0.8);">Contact</div>
             <h2>Collaboration and academic inquiries</h2>
           </div>
           <p>Email: <a href="mailto:kamatbiotech@gmail.com">kamatbiotech@gmail.com</a></p>
           <p>Google Scholar: <a href="https://scholar.google.com/citations?user=pZA3biMAAAAJ" target="_blank">View profile</a></p>
           <p>
-            I welcome collaborations across biosensors, microfluidics, wearable diagnostics,
-            AI-enabled sensing systems, and translational biomedical engineering.
+            I welcome collaborations across biosensors, microfluidics, wearable diagnostics, AI-enabled sensing systems, and translational biomedical engineering.
           </p>
         </div>
       </div>
     </section>
-
   </main>
 
   <div class="footer">
@@ -698,6 +896,5 @@
       © 2026 Dr. Vivek A. Kamat · Academic Website
     </div>
   </div>
-
 </body>
 </html>
